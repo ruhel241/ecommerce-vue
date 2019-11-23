@@ -15,7 +15,7 @@
 
         <div class="col-lg-3">
           <!-- Cart -->
-          <Cart></Cart>
+          <Cart @newItemAdd="addCartItem" :items="cart"></Cart>
         </div>
       </div>
     </div>
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       items: [],
+      cart: [],
     };
   },
 
@@ -55,6 +56,17 @@ export default {
     this.items = data;
     //console.log(this.items);
   },
+
+
+  methods:{
+    addCartItem(item){
+      this.cart.push(item);
+    }
+  }
+
+
+
+
 };
 </script>
 <style>

@@ -21,7 +21,7 @@
           <p class="card-text">{{ item.description }}</p>
         </div>
         <div class="card-footer">
-          <button class="btn btn-md btn-success">Add To Cart</button>
+          <button class="btn btn-md btn-success" @click="addToCart(item)">Add To Cart</button>
         </div>
       </div>
     </div>
@@ -40,6 +40,14 @@ export default {
   mounted() {
     // console.log(items);
   },
+
+  methods:{
+    addToCart(item){
+      this.$emit("newItemAdd", item)
+    }
+  }
+
+
 };
 </script>
 

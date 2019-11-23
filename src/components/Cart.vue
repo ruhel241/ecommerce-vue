@@ -7,19 +7,9 @@
         <th>Price</th>
         <th>Delete</th>
       </tr>
-      <tr>
-        <td>Item one</td>
-        <td>$112.2</td>
-        <td><button class="btn btn-sm btn-danger">--</button></td>
-      </tr>
-      <tr>
-        <td>Item one</td>
-        <td>$112.2</td>
-        <td><button class="btn btn-sm btn-danger">--</button></td>
-      </tr>
-      <tr>
-        <td>Item one</td>
-        <td>$112.2</td>
+      <tr v-for="(item, index) in items" :key="index">
+        <td>{{ item.title }}</td>
+        <td>${{ item.price }}</td>
         <td><button class="btn btn-sm btn-danger">--</button></td>
       </tr>
       <tr>
@@ -32,7 +22,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["items"],
+};
 </script>
 
 <style lang="stylus" scoped></style>
