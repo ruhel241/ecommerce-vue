@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!-- Navigation -->
-    <Navber></Navber> <br /><br /><br />
+    <!-- Navigation --> 
+    <Navber @search="search"></Navber> <br/><br/><br/>
 
     <!-- Page Content -->
     <div class="container">
@@ -10,12 +10,12 @@
           <!-- Home slider -->
           <HomeSlider></HomeSlider>
           <!-- Inventory -->
-          <Inventory :items="items"></Inventory>
+          <Inventory @newItemAdd="addCartItem" :items="items"></Inventory>
         </div>
 
         <div class="col-lg-3">
           <!-- Cart -->
-          <Cart @newItemAdd="addCartItem" :items="cart"></Cart>
+          <Cart @removeItem="remove" :items="cart"></Cart> 
         </div>
       </div>
     </div>
@@ -55,12 +55,24 @@ export default {
   mounted() {
     this.items = data;
     //console.log(this.items);
+    // console.log("serch:"+this.items);
   },
 
 
   methods:{
     addCartItem(item){
       this.cart.push(item);
+    },
+
+
+    remove(index){
+      this.cart.splice(index, 1);
+    },
+
+    search(keyword){
+      this.items = data.filter(item => {
+        return item.title.toLowerCase().indexOf(keyword.toLowerCase()) !== 1
+      })
     }
   }
 
