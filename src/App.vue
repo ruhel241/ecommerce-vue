@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <!-- Navigation --> 
+    <!-- <router-view></router-view> -->
     <Navber @search="search"></Navber> <br/><br/><br/>
 
     <!-- Page Content -->

@@ -32,7 +32,7 @@ export default {
       this.items.forEach( item => {
         total += parseFloat(item.price);
       })
-       return total;  
+       return total.toFixed(2);  
     }
   },
 

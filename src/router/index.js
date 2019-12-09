@@ -2,14 +2,25 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 
-Vue.use(VueRouter);
+import Hello from '../components/Hello.vue'
 
+
+Vue.use(VueRouter);
+console.log(VueRouter);
 const routes = [
   {
     path: "/",
     name: "home",
     component: Home,
   },
+
+  {
+    path: "/hello",
+    name: "hello",
+    component: Hello,
+  },
+  
+
   {
     path: "/about",
     name: "about",
@@ -23,7 +34,6 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
   routes,
 });
 
