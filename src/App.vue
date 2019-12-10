@@ -1,7 +1,23 @@
 <template>
   <div id="app">
-    <!-- Navigation --> 
-    <!-- <router-view></router-view> -->
+    <!-- Navigation -->
+     <!-- <router-link :to="{path: '/'}"> Home </router-link>
+  
+    <router-link :to="{path: '/hello/1'}"> Hello_1</router-link>
+    <router-link :to="{path: '/hello/2'}"> Hello_2</router-link>
+    <router-link :to="{path: '/hello/3'}"> Hello_3</router-link>
+    <router-link :to="{path: '/hello/4'}"> Hello_4</router-link>
+    <router-link :to="{path: '/hello/5'}"> Hello_5</router-link>
+    <router-view></router-view>  -->
+
+
+    <router-link :to="{path: ''}"> Home </router-link>
+    <router-link :to="{path: '/hello'}"> Hello </router-link>
+    <router-link :to="{path: '/item/1'}"> Item </router-link>
+   
+
+
+    
     <Navber @search="search"></Navber> <br/><br/><br/>
 
     <!-- Page Content -->
@@ -11,7 +27,8 @@
           <!-- Home slider -->
           <HomeSlider></HomeSlider>
           <!-- Inventory -->
-          <Inventory @newItemAdd="addCartItem" :items="items"></Inventory>
+          <router-view></router-view>
+          <!-- <Inventory @newItemAdd="addCartItem" :items="items"></Inventory> -->
         </div>
 
         <div class="col-lg-3">
@@ -33,15 +50,13 @@
 
 <script>
 import Navber from "./components/Navber";
-import Inventory from "./components/Inventory";
 import Cart from "./components/Cart";
 import HomeSlider from "./components/HomeSlider";
-import data from "./data.js";
+
 
 export default {
   components: {
     Navber,
-    Inventory,
     Cart,
     HomeSlider,
   },
@@ -54,7 +69,7 @@ export default {
   },
 
   mounted() {
-    this.items = data;
+  
     //console.log(this.items);
     // console.log("serch:"+this.items);
   },

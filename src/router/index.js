@@ -1,23 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-
-import Hello from '../components/Hello.vue'
-
+// import Home from "../view/Home.vue";
+import ItemsDetails from "../components/ItemsDetails.vue";
+import Inventory from "../components/Inventory";
 
 Vue.use(VueRouter);
-console.log(VueRouter);
+// console.log(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: Home,
+    name: "inventory",
+    component: Inventory,
   },
 
   {
-    path: "/hello",
-    name: "hello",
-    component: Hello,
+    path: "/item/:id",
+    name: "item",
+    component: ItemsDetails,
   },
   
 

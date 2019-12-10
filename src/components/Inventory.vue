@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div v-if="!loading" class="row">
     <div
       class="col-lg-4 col-md-6 mb-4"
       v-for="(item, index) in items"
@@ -9,7 +9,7 @@
         <a href="#"
           ><img
             class="card-img-top"
-            :src="item.image"
+            :src="item.photo"
             alt=""
             style="height:250px"
         /></a>
@@ -26,24 +26,54 @@
       </div>
     </div>
   </div>
+
+  <h1 v-else> Loading...... </h1>
+
+
   <!-- /.row -->
 </template>
 
 <script>
+import axios from 'axios'
+//import data from "../data";
 export default {
-  props: {
-    items: {
-      required: true,
-    },
+  // props: {
+  //   items: {
+  //     required: true,
+  //   },
+  // },
+
+  data() {
+    return {
+      loading: true,
+      items: []
+    }
   },
 
+
+
   mounted() {
-    // console.log(items);
+    //this.items = data;
+    
+    this.fetchInventory();
   },
 
   methods:{
     addToCart(item){
       this.$emit("newItemAdd", item)
+    },
+    fetchInventory(){
+      var self = this;
+      axios.get('http://localhost:3000/items').then(response => {
+
+        setTimeout(function(){
+          self.items = response.data;
+          self.loading = false;
+          console.log(response)
+        }, 3000);
+
+       
+      })
     }
   }
 
