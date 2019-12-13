@@ -6,20 +6,24 @@
       :key="index"
     >
       <div class="card h-100">
-        <a href="#"
-          ><img
-            class="card-img-top"
-            :src="item.photo"
-            alt=""
-            style="height:250px"
-        /></a>
-        <div class="card-body">
-          <h4 class="card-title">
-            <a href="#">{{ item.title }}</a>
-          </h4>
-          <h5>{{ item.price }}</h5>
-          <p class="card-text">{{ item.description }}</p>
-        </div>
+        <router-link :to="{path: '/item/' + item.id}"> 
+          <img
+              class="card-img-top"
+              :src="item.photo"
+              alt=""
+              style="height:250px"
+          />
+
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">{{ item.title }}</a>
+            </h4>
+            <h5>{{ item.price }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+          </div>
+        </router-link>
+
+
         <div class="card-footer">
           <button class="btn btn-md btn-success" @click="addToCart(item)">Add To Cart</button>
         </div>
@@ -46,33 +50,37 @@ export default {
   data() {
     return {
       loading: true,
-      items: []
+     // items: []
     }
   },
 
-
+  computed: {
+    items(){
+      return this.$store.getters.getInventory
+    }
+  },
 
   mounted() {
     //this.items = data;
-    
-    this.fetchInventory();
+     this.fetchInventory();
   },
 
   methods:{
     addToCart(item){
-      this.$emit("newItemAdd", item)
+      //this.$emit("newItemAdd", item)
+      //this.$store.commit('addToCart', item);
+
+      this.$store.dispatch('addToCart', item); //lager project
     },
     fetchInventory(){
       var self = this;
       axios.get('http://localhost:3000/items').then(response => {
-
         setTimeout(function(){
-          self.items = response.data;
+          //self.items = response.data;
           self.loading = false;
-          console.log(response)
-        }, 3000);
-
-       
+          self.$store.commit('setInventory', response.data);
+          //console.log(response)
+        }, 100);
       })
     }
   }
