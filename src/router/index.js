@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 // import Home from "../view/Home.vue";
 import ItemsDetails from "../components/ItemsDetails.vue";
 import Inventory from "../components/Inventory";
+import Checkout from "../components/Checkout"
 
 Vue.use(VueRouter);
 // console.log(VueRouter);
@@ -17,6 +18,12 @@ const routes = [
     path: "/item/:id",
     name: "item",
     component: ItemsDetails,
+  },
+
+  {
+    path: "/checkout",
+    name: "checkout",
+    component: Checkout,
   },
   
 

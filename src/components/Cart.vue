@@ -15,7 +15,14 @@
       <tr>
         <th>Total</th>
         <th>${{totalItem}}</th>
-        <th> <button  v-if="items.length > 0" class="btn btn-block btn-sm btn-success" @click="checkout">Checkout</button> </th>
+        <th> 
+          <router-link 
+            :to="{ path: '/checkout'}" 
+            class="btn btn-block btn-sm btn-success"
+            v-if="items.length > 0">
+            Checkout
+          </router-link>
+         </th>
       </tr>
     </table>
   </div>

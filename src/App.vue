@@ -1,23 +1,9 @@
 <template>
   <div id="app">
-    <!-- Navigation -->
-     <!-- <router-link :to="{path: '/'}"> Home </router-link>
-  
-    <router-link :to="{path: '/hello/1'}"> Hello_1</router-link>
-    <router-link :to="{path: '/hello/2'}"> Hello_2</router-link>
-    <router-link :to="{path: '/hello/3'}"> Hello_3</router-link>
-    <router-link :to="{path: '/hello/4'}"> Hello_4</router-link>
-    <router-link :to="{path: '/hello/5'}"> Hello_5</router-link>
-    <router-view></router-view>  -->
-
-
     <router-link :to="{path: ''}"> Home </router-link>
     <router-link :to="{path: '/hello'}"> Hello </router-link>
     <router-link :to="{path: '/item/1'}"> Item </router-link>
    
-
-
-    
     <Navber @search="search"></Navber> <br/><br/><br/>
 
     <!-- Page Content -->
@@ -25,7 +11,7 @@
       <div class="row">
         <div class="col-lg-9">
           <!-- Home slider -->
-          <HomeSlider></HomeSlider>
+          <!-- <HomeSlider></HomeSlider> -->
           <!-- Inventory -->
           <router-view></router-view>
           <!-- <Inventory @newItemAdd="addCartItem" :items="items"></Inventory> -->
@@ -51,14 +37,14 @@
 <script>
 import Navber from "./components/Navber";
 import Cart from "./components/Cart";
-import HomeSlider from "./components/HomeSlider";
+// import HomeSlider from "./components/HomeSlider";
 
 
 export default {
   components: {
     Navber,
     Cart,
-    HomeSlider,
+    // HomeSlider,
   },
 
   data() {

@@ -17,21 +17,21 @@
       <div class="carousel-item active">
         <img
           class="d-block img-fluid"
-          src="http://placehold.it/900x350"
+          src="https://images.financialexpress.com/2018/12/e-commerce-representational.jpg"
           alt="First slide"
         />
       </div>
       <div class="carousel-item">
         <img
           class="d-block img-fluid"
-          src="http://placehold.it/900x350"
+          src="https://shopnobari.com/wp-content/uploads/2020/06/offer-deal-at-shopnobari-online-shopping.jpg"
           alt="Second slide"
         />
       </div>
       <div class="carousel-item">
         <img
           class="d-block img-fluid"
-          src="http://placehold.it/900x350"
+          src="https://invoice.ng/blog/wp-content/uploads/2019/07/best-selling-online-products-in-nigeria.jpg"
           alt="Third slide"
         />
       </div>
@@ -61,6 +61,9 @@
 export default {};
 </script>
 
-<script>
-export default {};
-</script>
+<style scoped>
+     .carousel-item img{
+        width: 100%;
+        height: 350px;
+     } 
+</style>
