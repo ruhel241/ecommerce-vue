@@ -3,41 +3,37 @@
         <div class="row">
           <div class="col-lg-12">
             <HomeSlider/>
-          <div v-if="!loading" class="row">
-            
-            <div
-              class="col-lg-4 col-md-6 mb-4"
-              v-for="(item, index) in items"
-              :key="index"
-            >
-              <div class="card h-100">
-                <router-link :to="{path: '/item/' + item.id}"> 
-                  <img
-                      class="card-img-top"
-                      :src="item.photo"
-                      alt=""
-                      style="height:250px"
-                  />
+            <div v-if="!loading" class="row">
+              <div
+                class="col-lg-4 col-md-6 mb-4"
+                v-for="(item, index) in items"
+                :key="index">
+                <div class="card h-100">
+                  <router-link :to="{path: '/item/' + item.id}"> 
+                    <img
+                        class="card-img-top"
+                        :src="item.photo"
+                        alt=""
+                        style="height:250px"
+                    />
 
-                  <div class="card-body">
-                    <h4 class="card-title">
-                      <a href="#">{{ item.title }}</a>
-                    </h4>
-                    <h5>{{ item.price }}</h5>
-                    <p class="card-text">{{ item.description }}</p>
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <a href="#">{{ item.title }}</a>
+                      </h4>
+                      <h5>{{ item.price }}</h5>
+                      <p class="card-text">{{ item.description }}</p>
+                    </div>
+                  </router-link>
+
+
+                  <div class="card-footer">
+                    <button class="btn btn-md btn-success" @click="addToCart(item)">Add To Cart</button>
                   </div>
-                </router-link>
-
-
-                <div class="card-footer">
-                  <button class="btn btn-md btn-success" @click="addToCart(item)">Add To Cart</button>
                 </div>
               </div>
             </div>
-          </div>
-
-          <h1 v-else> Loading...... </h1>
-
+            <h1 v-else> Loading...... </h1>
           </div>
         </div>
     </div>

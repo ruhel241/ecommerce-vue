@@ -33,12 +33,9 @@ export const storage = {
      * using actions for large project, its asynchronous 
      */
 
-     actions: {
-         addToCart(contex, payload){
-            contex.commit('addToCart', payload)
-         }
-     }
-
-
-
+    actions: {
+        addToCart(contex, payload){
+          contex.commit('addToCart', payload)
+        }
+    }
 }
